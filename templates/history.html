@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+	<h1>{% block title %}Search History{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+	{% for search in searches %}
+		<article class="search">
+			<p class="body"><b>Input: </b>{{ search['query'] }}</p>
+			<p class="body"><b>Maximum range: </b>{{ search['answer'] }}</p>
+			<p class="body"><b></b>{{ search['created'] }}</p>
+		</article>
+		{% if not loop.last %}
+			<hr>
+		{% endif %}
+	{% endfor %}
+{% endblock %}
